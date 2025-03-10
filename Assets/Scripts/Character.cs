@@ -12,7 +12,7 @@ public class Character
 
     [SerializeField] private AbilityScore _abilityScore;     //not serializable
 
-    //This is h how you access enums from a class
+    //This is how you access enums from a class
     //Note: The enum must be public inorder to access it from another class
 
     //private PublicEnum.Enum1 enum1;

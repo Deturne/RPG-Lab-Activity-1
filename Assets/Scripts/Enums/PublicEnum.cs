@@ -1,6 +1,4 @@
-﻿using System;
-
-public class PublicEnum
+﻿public class PublicEnum
 {
     public enum Enum1
     {
