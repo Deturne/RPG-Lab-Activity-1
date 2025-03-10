@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ninja_f_0: 56438416945819737
+      ninja_f_1: -4851052029869204754
+      ninja_f_10: 4380797799191037667
+      ninja_f_11: 4213418894191886167
+      ninja_f_2: 2207487139980979657
+      ninja_f_3: 4448857614208744033
+      ninja_f_4: -1058578098744871895
+      ninja_f_5: 1709437501786061959
+      ninja_f_6: 1969184310857067898
+      ninja_f_7: -6064962406768516648
+      ninja_f_8: 6096224814974876735
+      ninja_f_9: 1160865112419097059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

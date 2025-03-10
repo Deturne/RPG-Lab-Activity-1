@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ranger_m_0: -2434084959341843947
+      ranger_m_1: -8127089093447096159
+      ranger_m_10: -9135099228042401203
+      ranger_m_11: 2164904967419400146
+      ranger_m_2: -2556676504124109229
+      ranger_m_3: -3329408372849862030
+      ranger_m_4: 1806121514897478964
+      ranger_m_5: -1133624952925587247
+      ranger_m_6: -9175259530965006922
+      ranger_m_7: 1972975897321587268
+      ranger_m_8: 7344023052323058618
+      ranger_m_9: -2855072830066243073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
