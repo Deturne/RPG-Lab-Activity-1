@@ -1,13 +1,16 @@
 ﻿using System;
+using UnityEngine;
 
+[Serializable]
 public class Character
 {
     #region Variables and Enums
-    [Header("Character Variables")]
-    private string _characterName;
-    private Enum_CharacterType _characterType;
-    private Enum_CharacterClass _characterClass;
-    private Enum_AbilityScore _abilityScore;
+    [SerializeField] private string _characterName;
+    [SerializeField] private Enum_CharacterType _characterType;
+    [SerializeField] private Enum_CharacterClass _characterClass;
+    [SerializeField] private GameObject _classPrefab;
+
+    [SerializeField] private AbilityScore _abilityScore;     //not serializable
 
     //This is h how you access enums from a class
     //Note: The enum must be public inorder to access it from another class
@@ -26,7 +29,8 @@ public class Character
     public string CharacterName { get => _characterName; set => _characterName = value; }
     public Enum_CharacterType CharacterType { get => _characterType; set => _characterType = value; }
     public Enum_CharacterClass CharacterClass { get => _characterClass; set => _characterClass = value; }
-    public Enum_AbilityScore AbilityScore { get => _abilityScore; set => _abilityScore = value; }
+    public AbilityScore AbilityScore { get => _abilityScore; set => _abilityScore = value; }
+    public GameObject ClassPrefab { get => _classPrefab; set => _classPrefab = value; }
 
     //The properties above but not shorthanded
     //public string ExpandedCharacterName
@@ -44,21 +48,34 @@ public class Character
 
     #region Constructors
     //Using c# global variables underscore prefix convention
-    public Character(string characterName, Enum_CharacterType characterType, Enum_CharacterClass characterClass, Enum_AbilityScore abilityScore)
+    public Character(string characterName, Enum_CharacterType characterType,
+        Enum_CharacterClass characterClass, AbilityScore abilityScore, GameObject classPrefab)
     {
-        _characterName = characterName;
-        _characterType = characterType;
+        _characterName  = characterName;
+        _characterType  = characterType;
         _characterClass = characterClass;
-        _abilityScore = abilityScore;
+        _abilityScore   = abilityScore;
+        _classPrefab    = classPrefab;
     }
 
     //Using this convention
-    //public Character(string characterName, Enum_CharacterType characterType, Enum_CharacterClass characterClass, Enum_AbilityScore abilityScore)
+    //public Character(string characterName, Enum_CharacterType characterType,
+    //    Enum_CharacterClass characterClass, AbilityScore abilityScore, GameObject classPrefab)
     //{
-    //    this.characterName = characterName;
-    //    this.characterType = characterType;
-    //    this.characterClass = characterClass;
-    //    this.abilityScore = abilityScore;
+    //    this.characterName  = characterName;
+    //    this.characterType  = characterType;
+    //    this.characterClass = character
+    //    this.abilityScore   = abilityScore;
+    //    this.classPrefab    = classPrefab;
     //}
     #endregion
+
+    public override string ToString()
+    {
+        return $"Character Name: {_characterName}," +
+            $" Character Type: {_characterType}," +
+            $" Character Class: {_characterClass}," +
+            $" Ability Score: {_abilityScore}," +
+            $" Class Prefab: {_classPrefab}";
+    }
 }
