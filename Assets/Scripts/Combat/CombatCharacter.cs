@@ -20,7 +20,6 @@ public class CombatCharacter : MonoBehaviour
 
     public void TakeDamage(int damageToTake)
     {
-
         Debug.Log("Damage to take: " + damageToTake);
         curHp -= damageToTake;
 
@@ -52,6 +51,7 @@ public class CombatCharacter : MonoBehaviour
 
     public void CastCombatAction(CombatActions combatAction)
     {
+        //Handle damage
         if (combatAction.Damage > 0)
         {
             StartCoroutine(AttackOpponent(combatAction));
@@ -61,6 +61,8 @@ public class CombatCharacter : MonoBehaviour
             GameObject proj = Instantiate(combatAction.ProjectilePrefab, transform.position, Quaternion.identity);
             //proj.GetComponent<Projectile>().Initialize(opponent, TurnManager.instance.EndTurn);
         }
+
+        //Handle healing
         else if (combatAction.HealAmount > 0)
         {
             Heal(combatAction.HealAmount);
@@ -72,6 +74,11 @@ public class CombatCharacter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the character to the opponent and attacks them
+    /// </summary>
+    /// <param name="combatAction"> The combat action SO</param>
+    /// <returns></returns>
     IEnumerator AttackOpponent(CombatActions combatAction)
     {
         while (transform.position != opponent.transform.position)

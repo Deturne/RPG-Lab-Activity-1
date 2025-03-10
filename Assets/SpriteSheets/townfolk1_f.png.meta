@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      townfolk1_f_0: 4152989954425285550
+      townfolk1_f_1: -6257174372621343127
+      townfolk1_f_10: 1621380550929633379
+      townfolk1_f_11: -1102500664524883376
+      townfolk1_f_2: 3522336898771291104
+      townfolk1_f_3: -3745313120973124683
+      townfolk1_f_4: -2449781744141230208
+      townfolk1_f_5: 3402327552129586413
+      townfolk1_f_6: -4237917271900307579
+      townfolk1_f_7: 7326034899775742671
+      townfolk1_f_8: 263868601786938377
+      townfolk1_f_9: 2910659102602791222
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
