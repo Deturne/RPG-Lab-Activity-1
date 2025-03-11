@@ -906,8 +906,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1275278258}
-  - component: {fileID: 1275278259}
   - component: {fileID: 1275278260}
+  - component: {fileID: 1275278259}
+  - component: {fileID: 1275278261}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -970,6 +971,24 @@ MonoBehaviour:
   e_onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1275278261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275278257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8774feb76788848a528e0cbf89e715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualContainer: {fileID: 915997052}
+  combatActionButtons:
+  - {fileID: 2133967736}
+  - {fileID: 1474462981}
+  - {fileID: 1241172969}
+  - {fileID: 2133124376}
 --- !u!1 &1329823421
 GameObject:
   m_ObjectHideFlags: 0
