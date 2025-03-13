@@ -5,8 +5,11 @@
 //This means that they are passed by value, and not by reference, and therefore not serializable.
 public struct AbilityScore
 {
+    // The fields of this struct.
     private int _strength, _dexterity, _constitution, _intelligence, _wisdom, _charisma;
 
+    // Public getter and setter methods for every ability score.
+    // They also cap the value to 10.
     public int Strength
     {
         get => _strength;
@@ -39,6 +42,7 @@ public struct AbilityScore
     }
 
     //Makes sure that the ability scores are within the range of 0-10
+    // Public constructor for a new AbilityScore struct, note it also forces the max to be 10.
     public AbilityScore(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
     {
         _strength   = Math.Clamp(strength, 0, 10);
