@@ -17,6 +17,7 @@ public class CombatCharacter : MonoBehaviour
     [Header("References")]
     [Tooltip("A list of all the scriptableObject combat actions this character can perform.")]
     public List<CombatActions> combatAction;
+
     [Tooltip("A reference to the opponent of this character during this battle sequence.")]
     [SerializeField] CombatCharacter opponent;
     
@@ -76,8 +77,7 @@ public class CombatCharacter : MonoBehaviour
         // First check to see if the ability being used does any damage.
         if (combatAction.Damage > 0)
         {
-            // If so, we'll have to damage the opponent.
-            // Add damage later.
+            StartCoroutine(AttackOpponent(combatAction));
         }
         // Then check to see if the ability uses a projectile.
         else if (combatAction.ProjectilePrefab != null)
@@ -122,5 +122,10 @@ public class CombatCharacter : MonoBehaviour
 
         // After the attack is finished and the character is back at their starting position, end their turn.
         TurnManager.instance.EndTurn();
+    }
+
+    public float GetHealthPercentage()
+    {
+        return (float) curHp / maxHp;
     }
 }

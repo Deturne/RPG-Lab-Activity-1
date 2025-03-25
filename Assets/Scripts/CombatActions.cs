@@ -8,7 +8,8 @@ public class CombatActions : ScriptableObject
 {
     // The name of this action.
     public string DisplayName;
-    // What type of attack this is.
+
+    // What type of attack this is. -> should be renamed to actiontype
     public AttackType attackType;
 
     // How much damage this attack deals.

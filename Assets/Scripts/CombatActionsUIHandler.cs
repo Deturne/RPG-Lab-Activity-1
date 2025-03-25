@@ -18,9 +18,18 @@ public class CombatActionsUIHandler : MonoBehaviour
         CombatEvents.e_onEndTurn.AddListener(OnEndTurn);
     }
 
-    // Handles displaying the combat action UI.
+    /// <summary>
+    ///     <br/> When a character's turn begins, show the combat action UI and assign the character's abilities to the buttons. <br/>
+    ///     <br/>
+    ///         If the character is not the player, just return and skip the UI display.
+    ///         If the character is the player, make the UI visible and assign the abilities to the buttons. 
+    ///     <br/>
+    /// </summary>
+    /// <param name="character"> The current Character taking their turn</param>
     public void OnBeginTurn(CombatCharacter character)
     {
+        Debug.Log("Begin Turn");
+
         // First, check to see if the character is the player.
         if (!character.isPlayer)
         {

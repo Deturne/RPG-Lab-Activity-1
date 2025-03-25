@@ -31,6 +31,11 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        OnBeginTurn();
+    }
+
     // Move to the next character in the turn order.
     public void OnBeginTurn()
     {
