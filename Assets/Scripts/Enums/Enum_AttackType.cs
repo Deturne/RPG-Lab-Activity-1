@@ -2,6 +2,6 @@ using UnityEngine;
 
     public enum AttackType
     {
-        Basic,
+        Attack,
         Heal
     }

@@ -16,6 +16,11 @@ public class TurnManager : MonoBehaviour
     // Static, globally accessible reference for the TurnManager.
     public static TurnManager instance;
 
+    private void Start()
+    {
+        OnBeginTurn();
+    }
+
     private void Awake()
     {
         // Making the TurnManager a singleton. First, delete any TurnManager that isn't our instance.
