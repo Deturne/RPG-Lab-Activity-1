@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8a8e78e0b661deb4080bedd126ae2356
+  - enabled: 1
+    path: Assets/Scenes/CharacterCreation.unity
+    guid: a4048c32549513f43b5955797993d749
+  - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/CombatScene.unity
+    guid: 61d90df44e2fa1942be86e35311ba116
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9c3bf75f4ded78a46bbc5c104ff0b7ed, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
