@@ -26,7 +26,7 @@ public class CreationManager : MonoBehaviour
     {
         foreach (var stats in stats)
         {
-            int score = Random.Range(1, 11);
+            int score = UnityEngine.Random.Range(1, 11);
             stats.text = score.ToString();
         }
     }
