@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 177579088}
   - component: {fileID: 177579087}
   - component: {fileID: 177579086}
+  - component: {fileID: 177579089}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -590,6 +591,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &177579089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177579084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf50eed6d1ea5894bbac2e96f7ce6561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1585409503}
+  healthtxt: {fileID: 14365159}
+  healthSlider: {fileID: 935578733}
 --- !u!1 &310403008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1710,7 @@ GameObject:
   - component: {fileID: 988431548}
   - component: {fileID: 988431547}
   - component: {fileID: 988431546}
+  - component: {fileID: 988431550}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1784,6 +1801,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.5}
   m_SizeDelta: {x: 7, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &988431550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988431545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf50eed6d1ea5894bbac2e96f7ce6561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1345205148}
+  healthtxt: {fileID: 334681886}
+  healthSlider: {fileID: 399454397}
 --- !u!1 &1055394909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,8 +2248,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.8
+      time: 0.0026168823
+      value: 0.14780122
       inSlope: 0
       outSlope: 0
       tangentMode: 0
