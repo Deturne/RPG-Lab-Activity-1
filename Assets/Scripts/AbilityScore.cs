@@ -111,6 +111,7 @@ public struct AbilityScore
         }
     }
 
+    // Return the string of all ability scores.
     public override string ToString()
     {
         return $"Strength: {Strength}, Dexterity: {Dexterity}, Constitution: {Constitution}, " +

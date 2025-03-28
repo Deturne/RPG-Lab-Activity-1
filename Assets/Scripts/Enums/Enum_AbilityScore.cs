@@ -7,4 +7,3 @@
     WISDOM,
     CHARISMA
 }
-

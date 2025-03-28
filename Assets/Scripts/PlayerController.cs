@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Testing if interacting works.
     private void TryInteract()
     {
         Debug.Log("Pressed interact button");

@@ -123,6 +123,7 @@ public class CombatCharacter : MonoBehaviour
         TurnManager.instance.EndTurn();
     }
 
+    // Return the current health as a percentage of max health.
     public float GetHealthPercentage()
     {
         return (float) curHp / maxHp;
