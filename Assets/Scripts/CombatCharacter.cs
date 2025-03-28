@@ -74,7 +74,7 @@ public class CombatCharacter : MonoBehaviour
     public void CastCombatAction(CombatActions combatAction)
     {
         // First check to see if the ability being used does any damage.
-        if (combatAction.Damage > 0)
+        if (combatAction.Damage > 0 && combatAction.ProjectilePrefab == null)
         {
             StartCoroutine(AttackOpponent(combatAction));
         }
@@ -83,6 +83,9 @@ public class CombatCharacter : MonoBehaviour
         {
             // If so, spawn the projectile at the location of the character.
             GameObject proj = Instantiate(combatAction.ProjectilePrefab, transform.position, Quaternion.identity);
+
+            // Pass the combat action and target data to the projectile.
+            proj.GetComponent<Projectile>().SetTargetAndStats(opponent, combatAction);
         }
         // Then check to see if the ability heals the character.
         else if (combatAction.HealAmount > 0)
