@@ -79,10 +79,11 @@ public class PlayerController : MonoBehaviour, ISomething, ISomethingB
             Debug.Log(hit.collider.gameObject.name);
 
             IConversable conversable = hit.collider.gameObject.GetComponent<IConversable>();
-            if(conversable != null)
-            {
-                conversable.StartConversation();
-            }
+            conversable?.StartConversation();
+        }
+        else
+        {
+            Debug.Log("Miissed");
         }
     }
 }

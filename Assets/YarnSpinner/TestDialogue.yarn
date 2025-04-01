@@ -1,12 +1,12 @@
-title: TestDialogue
+﻿title: TestDialogue
 position: 275,203
 ---
-This is test
+This is test #line:0c31e5d 
 ===
 
 title: Start
 position: -50,207
 ---
-This is a start
+This is a start #line:0fe84b0 
 <<jump TestDialogue>>
 ===

@@ -22,11 +22,12 @@ public class YarnInteractable : MonoBehaviour, IConversable
     public void EndConversation()
     {
         if (!isCurrentConversation) { return; }
-
+  
         minimalDialogueRunner.StopDialogue();
         if (oneShot)
         {
             DisableConversation();
+            minimalDialogueRunner.DialogueComplete.RemoveListener(EndConversation);
         }
     }
 
