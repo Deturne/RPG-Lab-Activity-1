@@ -10,15 +10,18 @@ public class PlayerController : MonoBehaviour
     public int moveSpeed;
     [Tooltip("Vector that will be used to store keyboard movement input.")]
     public Vector2 moveInput;
+    public Vector2 facingDir;
 
     [Header("Interact Fields")]
     [Header("Whether the character is trying to interact with something or not.")]
     public bool interactInput;
+    public float rayCastLength;
+    public LayerMask interactLayerMask;
 
     [Header("References")]
     [Tooltip("The Rigidbody2D component on this character.")]
     public Rigidbody2D rb;
-    
+
     private void Start()
     {
         // Store a reference to the Rigidbody2D component on this object in rb.
@@ -27,6 +30,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (moveInput.magnitude != 0.0f)
+        {
+            facingDir = moveInput.normalized;
+        }
+
         // Check to see if the player is trying to interact.
         if (interactInput)
         {
@@ -63,6 +71,21 @@ public class PlayerController : MonoBehaviour
     // Testing if interacting works.
     private void TryInteract()
     {
-        Debug.Log("Pressed interact button");
+        Debug.Log("Trying to interact.");
+        Debug.DrawRay(transform.position, facingDir * rayCastLength, Color.red, 1.0f);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, facingDir, rayCastLength, interactLayerMask);
+
+        if (hit) // Ensure hit.collider exists before accessing its properties
+        {
+            Debug.Log(hit.collider.gameObject.name);
+
+            IConversable conversable = hit.collider.gameObject.GetComponent<IConversable>();
+            if (conversable != null)
+            {
+                Debug.Log(hit.collider.gameObject.name + " is conversable.");
+                conversable.StartConversation();
+            }
+        }
     }
 }
+

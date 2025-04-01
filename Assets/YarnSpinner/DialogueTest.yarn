@@ -1,5 +1,16 @@
-﻿title: DialogueTest
+﻿title: Start
+position: 0,0
 tags:
 ---
-
+NPC-A: I think I might be sick.
+NPC-B: True friendship: Letting your friend make you sick.
+NPC-A: True bros.
+NPC-B: True bros.
+===
+title: NPC-A
+position: 6,207
+---
+NPC-A: Hello there! I'm NPC-A.
+NPC-A: I have a lot of things to say.
+NPC-A: But today, I am feeling a bit under the weather.
 ===
