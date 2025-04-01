@@ -1,0 +1,12 @@
+title: TestDialogue
+position: 275,203
+---
+This is test
+===
+
+title: Start
+position: -50,207
+---
+This is a start
+<<jump TestDialogue>>
+===

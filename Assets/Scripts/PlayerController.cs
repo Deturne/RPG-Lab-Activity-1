@@ -3,17 +3,20 @@ using UnityEngine.InputSystem;
 
 // Force anything with this script to require a Rigidbody2D component.
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ISomething, ISomethingB
 {
     [Header("Movement Fields")]
     [Tooltip("The movement speed of the player in meters per second.")]
     public int moveSpeed;
     [Tooltip("Vector that will be used to store keyboard movement input.")]
     public Vector2 moveInput;
+    public Vector2 facingDir;
 
     [Header("Interact Fields")]
     [Header("Whether the character is trying to interact with something or not.")]
     public bool interactInput;
+    public float raycastLength = 3;
+    public LayerMask interactableLayerMask;
 
     [Header("References")]
     [Tooltip("The Rigidbody2D component on this character.")]
@@ -27,6 +30,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(moveInput.magnitude != 0.0f)
+        {
+            facingDir = moveInput.normalized;
+        }
+
         // Check to see if the player is trying to interact.
         if (interactInput)
         {
@@ -63,6 +71,18 @@ public class PlayerController : MonoBehaviour
     // Testing if interacting works.
     private void TryInteract()
     {
-        Debug.Log("Pressed interact button");
+        Debug.DrawRay(transform.position, facingDir * raycastLength, Color.red, 1.0f);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, facingDir, raycastLength, interactableLayerMask);
+
+        if (hit)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+
+            IConversable conversable = hit.collider.gameObject.GetComponent<IConversable>();
+            if(conversable != null)
+            {
+                conversable.StartConversation();
+            }
+        }
     }
 }
