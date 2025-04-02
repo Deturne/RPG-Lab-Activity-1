@@ -54,9 +54,4 @@ public class YarnInteractable : MonoBehaviour, IConversable
     {
         interactable = false;
     }
-
-    private void OnDestroy()
-    {
-        dialogueRunner.DialogueComplete.RemoveListener(EndConversation);
-    }
 }
