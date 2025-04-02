@@ -19,9 +19,9 @@ public class DialogueSupportComponent : MonoBehaviour
         runner = FindFirstObjectByType<MinimalDialogueRunner>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!runner.isRunning)
             {

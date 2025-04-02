@@ -1,4 +1,5 @@
 using UnityEngine;
+using Yarn.Unity;
 
 public class YarnInteractable : MonoBehaviour, IConversable
 {
@@ -19,11 +20,15 @@ public class YarnInteractable : MonoBehaviour, IConversable
     {
         dialogueRunner = FindFirstObjectByType<MinimalDialogueRunner>();
         dialogueRunner.DialogueComplete.AddListener(EndConversation);
+        Debug.Log("DialogueRunner  and Subscribed");
     }
 
     public void StartConversation()
     {
+        // If the character is not interactable or a conversation is already running, return
         Debug.Log("Starting conversation with " + gameObject.name);
+        if(!interactable || dialogueRunner.isRunning) { return; }
+
         isCurrentConversation = true;
         dialogueRunner.StartDialogue(nodeName);
     }
@@ -34,17 +39,24 @@ public class YarnInteractable : MonoBehaviour, IConversable
     {
         if (!isCurrentConversation){return;}
 
-        dialogueRunner.StopDialogue();
+        isCurrentConversation = false;
+
         if (oneShot)
         {
             DisableConversation();
-            dialogueRunner.DialogueComplete.RemoveListener(this.EndConversation);
+            dialogueRunner.DialogueComplete.RemoveListener(EndConversation);
         }
+
     }
 
-    // make character not able to be clicked on
+    [YarnCommand("disable")]
     public void DisableConversation()
     {
         interactable = false;
+    }
+
+    private void OnDestroy()
+    {
+        dialogueRunner.DialogueComplete.RemoveListener(EndConversation);
     }
 }

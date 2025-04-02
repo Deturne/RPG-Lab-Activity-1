@@ -36,7 +36,7 @@ public class MinimalOptionsView : MonoBehaviour
 
     public void Start()
     {
-        runner = FindObjectOfType<MinimalDialogueRunner>();
+        runner = FindFirstObjectByType<MinimalDialogueRunner>();
 
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;

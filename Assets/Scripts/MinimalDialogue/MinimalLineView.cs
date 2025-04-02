@@ -6,7 +6,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using Yarn.Unity;
 
 // this class is based on the full LineView in Runtime/Views/LineView.cs
@@ -42,7 +41,7 @@ public class MinimalLineView : MonoBehaviour
 
     [SerializeField]
     [Min(0)]
-    internal float holdTime = 1f;
+    internal float holdTime = .5f;
     
     LocalizedLine currentLine = null;
 
@@ -67,6 +66,7 @@ public class MinimalLineView : MonoBehaviour
 
     public void DismissLine()
     {
+        Debug.Log("Dismissing line");
         currentLine = null;
 
         StartCoroutine(DismissLineInternal());
@@ -74,6 +74,7 @@ public class MinimalLineView : MonoBehaviour
 
     private IEnumerator DismissLineInternal()
     {
+        Debug.Log("Starting Coroutine: Dismissing line internal");
         // disabling interaction temporarily while dismissing the line
         // we don't want people to interrupt a dismissal
         var interactable = canvasGroup.interactable;
@@ -90,7 +91,9 @@ public class MinimalLineView : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
         // turning interaction back on, if it needs it
         canvasGroup.interactable = interactable;
+
         runner.Continue();
+        Debug.Log("Finished Coroutine: Dismissing line internal -> Continue Runner");
     }
 
     public void RunLine(LocalizedLine dialogueLine)
@@ -226,7 +229,7 @@ public class MinimalLineView : MonoBehaviour
         {
             return;
         }
-
+        Debug.Log("Continue clicked");
         DismissLine();
     }
 }
