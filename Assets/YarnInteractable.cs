@@ -1,4 +1,5 @@
 using UnityEngine;
+using Yarn.Unity;
 
 public class YarnInteractable : MonoBehaviour, IConversable
 {
@@ -14,6 +15,7 @@ public class YarnInteractable : MonoBehaviour, IConversable
         minimalDialogueRunner.DialogueComplete.AddListener(EndConversation);
     }
 
+    [YarnCommand("disable")]
     public void DisableConversation()
     {
         interactable = false;
@@ -23,7 +25,6 @@ public class YarnInteractable : MonoBehaviour, IConversable
     {
         if (!isCurrentConversation) { return; }
   
-        minimalDialogueRunner.StopDialogue();
         if (oneShot)
         {
             DisableConversation();
