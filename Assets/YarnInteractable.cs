@@ -16,6 +16,7 @@ public class YarnInteractable : MonoBehaviour, IConversable
     }
     [YarnCommand("disable")]
 
+    [YarnCommand("disable")]
     public void DisableConversation()
     {
         interactable = false;
