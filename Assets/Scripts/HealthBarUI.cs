@@ -24,6 +24,11 @@ public class HealthBarUI : MonoBehaviour
         healthSlider.value = character.curHp;
         // Change the text to display the current health / max health.
         healthtxt.text = character.curHp + " / " + character.maxHp;
+
+        if (character.isPlayer)
+        {
+            healthtxt.text = PlayerController.health.ToString() + " / " + character.maxHp;
+        }
     }
 
     // Method to update the text to match the current health and then update the slider fill amount.
@@ -31,5 +36,11 @@ public class HealthBarUI : MonoBehaviour
     {
         healthtxt.text = character.curHp + " / " + character.maxHp;
         healthSlider.value = character.curHp;
+
+        if (character.isPlayer)
+        {
+            healthtxt.text = PlayerController.health.ToString() + " / " + character.maxHp;
+            healthSlider.value = PlayerController.health;
+        }
     }
 }

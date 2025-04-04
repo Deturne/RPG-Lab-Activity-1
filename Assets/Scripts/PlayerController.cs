@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 // Force anything with this script to require a Rigidbody2D component.
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour, ISomething, ISomethingB
     [Tooltip("Vector that will be used to store keyboard movement input.")]
     public Vector2 moveInput;
     public Vector2 facingDir;
+    public Vector2 lastPos;
 
     [Header("Interact Fields")]
     [Header("Whether the character is trying to interact with something or not.")]
@@ -21,11 +23,25 @@ public class PlayerController : MonoBehaviour, ISomething, ISomethingB
     [Header("References")]
     [Tooltip("The Rigidbody2D component on this character.")]
     public Rigidbody2D rb;
-    
+
+    [Header("Stats")]
+    public static int health = 10;
+    public int level = 1;
+    public static int experience = 0;
+
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         // Store a reference to the Rigidbody2D component on this object in rb.
         rb = GetComponent<Rigidbody2D>();
+        if(lastPos != null)
+        {
+            transform.position = lastPos;
+        }
     }
 
     private void Update()
@@ -42,6 +58,14 @@ public class PlayerController : MonoBehaviour, ISomething, ISomethingB
             interactInput = false;
             // Attempt an interaction with something.
             TryInteract();
+        }
+
+        if(experience >= 10)
+        {
+            level++;
+            experience -= 10; 
+            health += 5;
+            Debug.Log($"Level Up! New Level: {level}, Health: {health}");
         }
     }
 
@@ -74,7 +98,7 @@ public class PlayerController : MonoBehaviour, ISomething, ISomethingB
         Debug.DrawRay(transform.position, facingDir * raycastLength, Color.red, 1.0f);
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, facingDir, raycastLength, interactableLayerMask);
 
-        if (hit)
+        if (!hit.collider.gameObject.CompareTag("Enemy"))
         {
             Debug.Log(hit.collider.gameObject.name);
 
@@ -84,6 +108,13 @@ public class PlayerController : MonoBehaviour, ISomething, ISomethingB
         else
         {
             Debug.Log("Miissed");
+        }
+
+        if (hit.collider.gameObject.CompareTag("Enemy"))
+        {
+            lastPos = transform.position;
+            Debug.Log("Enemy detected, starting combat scene.");
+            SceneManager.LoadScene("CombatScene", LoadSceneMode.Single);
         }
     }
 }

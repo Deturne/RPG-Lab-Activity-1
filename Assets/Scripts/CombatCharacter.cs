@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatCharacter : MonoBehaviour
 {
@@ -35,6 +36,11 @@ public class CombatCharacter : MonoBehaviour
         // Subtract the damage dealt from the current health.
         curHp -= damageToTake;
 
+        if (isPlayer)
+        {
+            curHp = PlayerController.health -= damageToTake;
+        }
+
         // Invoke the onHealthChange event.
         CombatEvents.e_onHealthChange.Invoke();
 
@@ -52,13 +58,21 @@ public class CombatCharacter : MonoBehaviour
         CombatEvents.e_onCharacterDie.Invoke(this);
         // Remove this character from the game and clear up the memory.
         Destroy(gameObject);
+
+        SceneManager.LoadScene("Overworld",LoadSceneMode.Single);
+
+        if (!isPlayer)
+        {
+            PlayerController.experience += 5; // Give player some experience for defeating an enemy
+        }
     }
 
     // Handles when this character is healed.
     public void Heal(int healAmount)
     {
         // Increase the current health by the heal amount.
-        curHp += healAmount;
+
+        
 
         // Invoke the onHealthChange event.
         CombatEvents.e_onHealthChange.Invoke();
@@ -67,6 +81,15 @@ public class CombatCharacter : MonoBehaviour
         if (curHp > maxHp)
         {
             curHp = maxHp;
+        }
+
+        if (isPlayer)
+        {
+            curHp = PlayerController.health += healAmount;
+        }
+        else
+        {
+            curHp += healAmount;
         }
     }
 
